@@ -130,7 +130,7 @@ def dates(start,end):
 	# Query Min, Max, and Avg based on dates
 	summary_stats = session.query(func.min(Measurement.tobs),func.max(Measurement.tobs),func.round(func.avg(Measurement.tobs))).\
 	filter(Measurement.date.between(Start_Date,End_Date)).all()
-	# Close the Query
+	
 	session.close()    
 	
 	summary = list(np.ravel(summary_stats))
